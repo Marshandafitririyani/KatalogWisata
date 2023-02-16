@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bgrn_login"
+        tools:context=".ui.login.LoginActivity">
+
+        <ImageView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_marginStart="@dimen/_28sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:src="@drawable/go_tour" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_150sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginEnd="@dimen/_13sdp"
+                android:gravity="center"
+                android:text="Welcome back"
+                android:textColor="@color/blue_300"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="@dimen/_13sdp"
+                android:gravity="center"
+                android:text="Login to your account"
+                android:textColor="@color/blue_300"
+                android:textSize="@dimen/_13ssp" />
+
+
+            <EditText
+                android:id="@+id/et_email_login"
+                android:layout_width="@dimen/_280sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/custome_kotak"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="@dimen/_8sdp"
+                android:hint="marfit@gmail.com"
+                android:padding="@dimen/_10sdp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/et_password_login"
+                    android:layout_width="@dimen/_280sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:background="@drawable/custome_kotak"
+                    android:drawableStart="@drawable/ic_password"
+                    android:hint="Password"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:inputType="textPassword"
+                    android:padding="@dimen/_10sdp"
+
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_register_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_235sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="Register"
+                android:textColor="@color/blue_300"
+                android:textSize="@dimen/_15ssp" />
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:background="@drawable/custome_buttom"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_18ssp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</layout>

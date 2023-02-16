@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_100"
+    android:orientation="vertical"
+    tools:context=".ui.register.RegisterActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_170sdp"
+        android:gravity="center"
+        android:text="Register"
+        android:textColor="@color/blue_300"
+        android:textSize="@dimen/_30ssp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_210sdp"
+        android:gravity="center"
+        android:text="Create your new account"
+        android:textColor="@color/blue_300"
+        android:textSize="@dimen/_13ssp" />
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_25sdp"
+        android:elevation="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:background="?selectableItemBackground"
+        android:foreground="?selectableItemBackground"
+        android:src="@drawable/ic_bback" />
+
+    <ImageView
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_130sdp"
+        android:layout_marginStart="@dimen/_160sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:src="@drawable/go_tour" />
+
+
+    <EditText
+        android:id="@+id/et_email_register"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_245sdp"
+        android:imeOptions="actionDone"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/custome_kotak"
+        android:drawableLeft="@drawable/ic_email"
+        android:hint="  marfit@gmail.com"
+        android:padding="@dimen/_10sdp" />
+
+    <EditText
+        android:id="@+id/et_full_name"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:inputType="textPersonName"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_293sdp"
+        android:background="@drawable/custome_kotak"
+        android:drawableLeft="@drawable/ic_person"
+        android:hint="  Full Name"
+        android:padding="@dimen/_10sdp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_340sdp"
+        android:background="@color/trasparan"
+        app:hintEnabled="false"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/et_password_register"
+            android:layout_width="@dimen/_280sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_245sdp"
+            android:background="@drawable/custome_kotak"
+            android:drawableLeft="@drawable/ic_password"
+            android:hint="  Password"
+            android:inputType="textPassword"
+            android:padding="@dimen/_10sdp"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/btnSign_up"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_450sdp"
+        android:background="@drawable/custome_buttom"
+        android:foreground="?selectableItemBackground"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_16ssp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_500sdp"
+        android:gravity="center"
+        android:text="Already have an account?Log in"
+        android:textColor="@color/blue_300"
+        android:textSize="@dimen/_14ssp" />
+
+
+</RelativeLayout>
+</layout>

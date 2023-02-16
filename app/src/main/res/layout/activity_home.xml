@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue_100"
+        android:orientation="vertical"
+        tools:context=".ui.home.HomeActivity">
+
+        <EditText
+            android:id="@+id/et_search_home"
+            android:layout_width="@dimen/_190sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:background="@drawable/custome_putih"
+            android:clickable="true"
+            android:drawableEnd="@drawable/ic_search"
+            android:elevation="@dimen/_10sdp"
+            android:focusable="true"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:padding="@dimen/_8sdp"
+            app:defaultQueryHint="search notes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:queryHint="search notes"
+            tools:text="search" />
+
+        <ImageView
+            android:id="@+id/iv_save"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_230sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:elevation="@dimen/_20sdp"
+            android:background="?selectableItemBackground"
+            android:foreground="?selectableItemBackground"
+            android:src="@drawable/ic_save" />
+
+        <ImageView
+            android:id="@+id/iv_profil_home"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginStart="@dimen/_260sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:elevation="@dimen/_20sdp"
+            android:background="?selectableItemBackground"
+            android:foreground="?selectableItemBackground"
+            android:src="@drawable/ic_person"
+            app:tint="@color/white" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_190sdp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_wista_menarik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_8sdp"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_card_wisata_tengah" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_310sdp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_wisataPopuler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_card_wisata_bawah" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "516695031398",
+    "project_id": "katalog-wisata-af768",
+    "storage_bucket": "katalog-wisata-af768.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516695031398:android:16a58566b1314f183137a7",
+        "android_client_info": {
+          "package_name": "com.example.katalogwisata"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516695031398-6oli2t5t2h1gs8coqki4a0mi1e01si7u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPJXVGr0tNP2F9W8zIT0Fyh6b1F_-fipM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516695031398-6oli2t5t2h1gs8coqki4a0mi1e01si7u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

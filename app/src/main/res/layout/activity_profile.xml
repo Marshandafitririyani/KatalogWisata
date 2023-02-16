@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable
+            name="user"
+            type="com.example.katalogwisata.data.user.User" />
+    </data>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.profile.ProfileActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:background="@color/blue_300"
+        android:gravity="fill_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/iv_back_profil"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:elevation="@dimen/_30sdp"
+            android:background="?selectableItemBackground"
+            android:foreground="?selectableItemBackground"
+            android:src="@drawable/ic_bback" />
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_75sdp"
+            android:text="Profil"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_23ssp" />
+
+        <ImageView
+            android:id="@+id/iv_logout"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:background="?selectableItemBackground"
+            android:foreground="?selectableItemBackground"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/_90sdp"
+            android:src="@drawable/ic_logout"
+            app:tint="@color/white" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_profil"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_230sdp"
+        android:padding="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:src="@drawable/profil" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_237sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:text="Nama"
+        android:textSize="@dimen/_16ssp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_270sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:text='@{user.name}'
+        android:textSize="@dimen/_16ssp" />
+
+
+<!--    <EditText-->
+<!--        android:id="@+id/et_name_profil"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/_40sdp"-->
+<!--        android:layout_marginStart="@dimen/_17sdp"-->
+<!--        android:layout_marginTop="@dimen/_265sdp"-->
+<!--        android:layout_marginEnd="@dimen/_18sdp"-->
+<!--        android:padding="@dimen/_9sdp" />-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_315sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:text="Email"
+        android:textSize="@dimen/_16ssp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_345sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:text='@{user.email}'
+        android:textSize="@dimen/_16ssp" />
+
+<!--    <EditText-->
+<!--        android:id="@+id/et_noHp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/_40sdp"-->
+<!--        android:layout_marginStart="@dimen/_17sdp"-->
+<!--        android:layout_marginTop="@dimen/_340sdp"-->
+<!--        android:layout_marginEnd="@dimen/_18sdp"-->
+<!--        android:padding="@dimen/_9sdp" />-->
+
+    <Button
+        android:id="@+id/btn_edit_profil"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_37sdp"
+        android:layout_marginTop="@dimen/_500sdp"
+        android:background="@drawable/custome_buttom2"
+        android:text="Edit Profil"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_17sdp" />
+
+
+</RelativeLayout>
+
+</layout>
