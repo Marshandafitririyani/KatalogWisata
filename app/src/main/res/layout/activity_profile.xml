@@ -17,7 +17,7 @@
     tools:context=".ui.profile.ProfileActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linear_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_42sdp"
         android:background="@color/blue_300"
@@ -39,10 +39,10 @@
             android:elevation="@dimen/_30sdp"
             android:background="?selectableItemBackground"
             android:foreground="?selectableItemBackground"
-            android:src="@drawable/ic_bback" />
+            android:src="@drawable/ic_back" />
 
         <TextView
-            android:id="@+id/tvLogin"
+            android:id="@+id/tv_login"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_35sdp"
             android:layout_gravity="center_vertical"
@@ -66,16 +66,16 @@
     <ImageView
         android:id="@+id/iv_profil"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_230sdp"
+        android:layout_height="@dimen/_220sdp"
         android:padding="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:src="@drawable/profil" />
+        android:layout_marginTop="@dimen/_40sdp"
+        android:src="@drawable/img_person" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_237sdp"
+        android:layout_marginTop="@dimen/_260sdp"
         android:layout_marginEnd="@dimen/_18sdp"
         android:text="Nama"
         android:textSize="@dimen/_16ssp" />
@@ -84,8 +84,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_270sdp"
+        android:layout_marginTop="@dimen/_280sdp"
         android:layout_marginEnd="@dimen/_18sdp"
+        android:textColor="@color/black"
         android:text='@{user.name}'
         android:textSize="@dimen/_16ssp" />
 
@@ -105,16 +106,17 @@
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_315sdp"
         android:layout_marginEnd="@dimen/_18sdp"
-        android:text="Email"
+        android:text="Phone Number"
         android:textSize="@dimen/_16ssp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_345sdp"
+        android:layout_marginTop="@dimen/_340sdp"
         android:layout_marginEnd="@dimen/_18sdp"
-        android:text='@{user.email}'
+        android:textColor="@color/black"
+        android:text='@{user.phoneNumber}'
         android:textSize="@dimen/_16ssp" />
 
 <!--    <EditText-->
@@ -132,7 +134,7 @@
         android:layout_height="@dimen/_40sdp"
         android:layout_marginStart="@dimen/_37sdp"
         android:layout_marginTop="@dimen/_500sdp"
-        android:background="@drawable/custome_buttom2"
+        android:background="@drawable/custom_button2"
         android:text="Edit Profil"
         android:textAllCaps="false"
         android:textSize="@dimen/_17sdp" />

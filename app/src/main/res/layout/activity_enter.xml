@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bgn_masuk"
-        tools:context=".ui.masuk.MasukActivity">
+        android:background="@drawable/img_background_enter"
+        tools:context=".ui.enter.EnterActivity">
 
         <ImageView
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_200sdp"
             android:layout_marginStart="@dimen/_50sdp"
             android:layout_marginTop="@dimen/_120sdp"
-            android:src="@drawable/go_tour"
-            />
+            android:src="@drawable/img_go_tour" />
 
         <Button
             android:id="@+id/btn_enter"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_35sdp"
-            android:layout_marginTop="@dimen/_410sdp"
             android:layout_marginStart="@dimen/_50sdp"
-            android:background="@drawable/custome_buttom2"
+            android:layout_marginTop="@dimen/_410sdp"
+            android:background="@drawable/custom_button2"
             android:text="Enter"
+            android:textAllCaps="false"
             android:textSize="20sp" />
-
-
 
 
     </RelativeLayout>

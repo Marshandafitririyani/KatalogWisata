@@ -9,7 +9,6 @@ import android.graphics.Matrix
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
@@ -26,8 +25,6 @@ import com.crocodic.core.helper.DateTimeHelper
 import com.example.katalogwisata.R
 import com.example.katalogwisata.data.base.BaseActivity
 import com.example.katalogwisata.databinding.ActivityEditProfileBinding
-import com.example.katalogwisata.databinding.ActivityProfileBinding
-import com.example.katalogwisata.ui.home.HomeActivity
 import com.example.katalogwisata.ui.profile.ProfileActivity
 import dagger.hilt.android.AndroidEntryPoint
 import id.zelory.compressor.Compressor
@@ -36,70 +33,100 @@ import id.zelory.compressor.constraint.quality
 import id.zelory.compressor.constraint.resolution
 import id.zelory.compressor.constraint.size
 import kotlinx.coroutines.launch
-import retrofit2.http.PUT
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.InputStream
 
 @AndroidEntryPoint
-class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfilViewModel>(R.layout.activity_edit_profile) {
+class EditProfileActivity :
+    BaseActivity<ActivityEditProfileBinding, EditProfileViewModel>(R.layout.activity_edit_profile) {
 
     private var photoFile: File? = null
     private var username: String? = null
+    private var phoneNumber: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.ivSilangEditProfil.setOnClickListener {
-            openActivity<ProfileActivity>()
+        //untuk getExstra menyimpan username
+        username = intent.getStringExtra("username")
+        phoneNumber = intent.getStringExtra("phoneNumber")
+        binding.activity = this
+        binding.etNameEditProfil.setText(username)
+        binding.etPhoneEditProfil.setText(phoneNumber)
+
+        initClick()
+        observe()
+
+    }
+
+    private fun validateForm() {
+        val name = binding.etNameEditProfil.textOf()
+        val phone = binding.etPhoneEditProfil.textOf()
+
+        if (name.isEmpty())
+            if (phone.isEmpty()){
+                    return
+                }
+
+        //untuk foto saja
+        if (photoFile == null) {
+            if (name == username)
+                if (phone == phoneNumber) {
+                        tos("Tidak ada yang berubah")
+                        return
+                    }
+            viewModel.userUpdate("put",name,phone)
+        } else {
+            lifecycleScope.launch {
+                tos("Tunggu")
+                val compressPhoto = compressFile(photoFile!!)
+                if (compressPhoto != null) {
+                    viewModel.userUpdateWithPhoto("put",name,phone, compressPhoto)
+                }
+            }
         }
 
+    }
+
+    //compres photo
+    suspend fun compressFile(filePhoto: File): File? {
+        println("Compress 1")
+        try {
+            println("Compress 2")
+            return Compressor.compress(this, filePhoto) {
+                resolution(720, 720)
+                quality(80)
+                format(Bitmap.CompressFormat.JPEG)
+                size(520)
+            }
+        } catch (e: Exception) {
+            println("Compress 3")
+            tos("Gagal kompress anda bisa mengganti foto lain")
+            e.printStackTrace()
+            return null
+        }
+
+    }
+
+    private fun initClick() {
         binding.ivCentangEditProfil.setOnClickListener {
-            val name = binding.etNameEditProfil.textOf()
-            val email = binding.etEmailEditProfil.textOf()
-//            val photo = binding.ivEditProfil.()
+            validateForm()
 
-            viewModel.updateProfile(name, email)
+        }
 
-            //compres photo
-            suspend fun compressFile(filePhoto: File): File? {
-                println("Compress 1")
-                try {
-                    println("Compress 2")
-                    return Compressor.compress(this, filePhoto) {
-                        resolution(720, 720)
-                        quality(50)
-                        format(Bitmap.CompressFormat.JPEG)
-                        size(514)
-                    }
-                } catch (e: Exception) {
-                    println("Compress 3")
-                    tos("Gagal kompress anda bisa mengganti foto lain")
-                    e.printStackTrace()
-                    return null
-                }
-
-            }
-
-            //untuk foto saja
-            if (photoFile == null) {
-                if (name == username) {
-                    tos("Tidak ada yang berubah")
-                }
-                viewModel.updateProfile(name, email)
+        binding.ivEditProfil.setOnClickListener {
+            if (checkPermissionGallery()) {
+                openGallery()
             } else {
-                lifecycleScope.launch {
-                    tos("Tunggu")
-                    val compressPhoto = compressFile(photoFile!!)
-                    if (compressPhoto != null) {
-                        viewModel.updateProfileWithPhoto(name, email, compressPhoto)
-                    }
-                }
+                requestPermissionGallery()
             }
         }
 
+    }
 
+    private fun observe() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
@@ -108,7 +135,7 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfilV
                             ApiStatus.LOADING -> loadingDialog.show(" Please Wait Save Profil")
                             ApiStatus.SUCCESS -> {
                                 loadingDialog.dismiss()
-                                openActivity<ProfileActivity>()
+                                openActivity<EditProfileActivity>()
                                 finish()
                             }
                             else -> loadingDialog.setResponse(it.message ?: return@collect)
@@ -117,12 +144,7 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfilV
                 }
             }
         }
-
-        }
-
-
-
-
+    }
         override fun onRequestPermissionsResult(
             requestCode: Int,
             permissions: Array<out String>,
@@ -260,9 +282,9 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfilV
             val storageDir =
                 getAppSpecificAlbumStorageDir(Environment.DIRECTORY_DOCUMENTS, "Attachment")
             return File.createTempFile(
-                "JPEG_${timeStamp}_", /* prefix */
-                ".jpg", /* suffix */
-                storageDir /* directory */
+                "JPEG_${timeStamp}_",
+                ".jpg",
+                storageDir
             )
         }
 
@@ -272,19 +294,43 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding, EditProfilV
         }
 
         private fun getAppSpecificAlbumStorageDir(albumName: String, subAlbumName: String): File {
-            // Get the pictures directory that's inside the app-specific directory on
-            // external storage.
             val file = File(getExternalFilesDir(albumName), subAlbumName)
             if (!file.mkdirs()) {
-                //Log.e("fssfsf", "Directory not created")
             }
             return file
+    }
+}
+
+
+/*
+        binding.ivSilangEditProfil.setOnClickListener {
+            openActivity<ProfileActivity>()
         }
 
+        binding.ivCentangEditProfil.setOnClickListener {
+            val name = binding.etNameEditProfil.textOf()
+            val phoneNumber = binding.etPhoneEditProfil.textOf()
+            tos("save")
+            viewModel.userUpdate("put",name, phoneNumber)
 
-    }
 
+            lifecycleScope.launch {
+                repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    launch {
+                        viewModel.apiResponse.collect {
+                            when (it.status) {
+                                ApiStatus.LOADING -> loadingDialog.show(" Please Wait Save Profil")
+                                ApiStatus.SUCCESS -> {
+                                    loadingDialog.dismiss()
+                                    openActivity<ProfileActivity>()
+                                    finish()
+                                }
+                                else -> loadingDialog.setResponse(it.message ?: return@collect)
+                            }
+                        }
+                    }
+                }
+            }
 
-
-
+        }*/
 

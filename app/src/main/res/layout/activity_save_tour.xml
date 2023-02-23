@@ -9,11 +9,11 @@
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.simpan.SaveWisataActivity">
+    android:layout_height="wrap_content"
+    tools:context=".ui.save.SaveTourActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayoutSimpan"
+        android:id="@+id/linear_layout_simpan"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@color/blue_300"
@@ -27,7 +27,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginStart="150dp"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/_120sdp"
         android:text="Disimpan"
         android:layout_gravity="center"
         android:textColor="@color/white"
@@ -43,14 +44,14 @@
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_wisata_simpan"
+            android:id="@+id/rv_tour_save"
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="11.5dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_card_wisata_simpan" />
+            tools:listitem="@layout/item_card_tour_save" />
 
     </LinearLayout>
 

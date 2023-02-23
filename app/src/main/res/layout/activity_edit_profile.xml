@@ -1,114 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="activity"
-            type="com.example.katalogwisata.data.user.User" />
+            type="com.example.katalogwisata.ui.edit.EditProfileActivity" />
     </data>
 
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.edit.EditProfileActivity">
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_42sdp"
-        android:background="@color/blue_300"
-        android:gravity="fill_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        tools:context=".ui.edit.EditProfileActivity">
 
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:background="@color/blue_300"
+            android:gravity="fill_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/iv_silang_edit_profil"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="?selectableItemBackground"
+                android:foreground="?selectableItemBackground"
+                android:src="@drawable/ic_flase" />
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_60sdp"
+                android:text="Edit Profil"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_25sdp" />
+
+            <ImageView
+                android:id="@+id/iv_centang_edit_profil"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_50sdp"
+                android:src="@drawable/ic_true"
+                app:tint="@color/white" />
+        </LinearLayout>
 
         <ImageView
-            android:id="@+id/iv_silang_edit_profil"
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:background="?selectableItemBackground"
-            android:foreground="?selectableItemBackground"
-            android:src="@drawable/ic_silang" />
+            android:id="@+id/iv_edit_profil"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/img_person" />
 
         <TextView
-            android:id="@+id/tvLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/_75sdp"
-            android:text="Profil"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_25sdp" />
-
-        <ImageView
-            android:id="@+id/iv_centang_edit_profil"
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/_90sdp"
-            android:src="@drawable/ic_centang"
-            app:tint="@color/white" />
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/iv_edit_profil"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_230sdp"
-        android:padding="@dimen/_8sdp"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:src="@drawable/profil" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_237sdp"
-        android:layout_marginEnd="@dimen/_18sdp"
-        android:text="Nama"
-        android:textSize="@dimen/_16ssp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_270sdp"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:text="Name"
+            android:textSize="@dimen/_16ssp" />
 
 
-    <EditText
-        android:id="@+id/et_name_edit_profil"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginStart="@dimen/_17sdp"
-        android:layout_marginTop="@dimen/_265sdp"
-        android:layout_marginEnd="@dimen/_18sdp"
-        android:inputType="textCapWords"
-        android:background="@drawable/custome_layout_tepi"
-        android:hint="Nama mu aja gpp"
-        android:padding="@dimen/_9sdp" />
+        <EditText
+            android:id="@+id/et_name_edit_profil"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_17sdp"
+            android:layout_marginTop="@dimen/_295sdp"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:background="@drawable/custom_layout_frame"
+            android:hint="Nama empty"
+            android:textColor="@color/black"
+            android:inputType="textCapWords"
+            android:padding="@dimen/_9sdp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_315sdp"
-        android:layout_marginEnd="@dimen/_18sdp"
-        android:text="Email"
-        android:textSize="@dimen/_16ssp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_350sdp"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:text="Phone Number"
+            android:textSize="@dimen/_16ssp" />
 
-    <EditText
-        android:id="@+id/et_email_edit_profil"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_marginStart="@dimen/_17sdp"
-        android:layout_marginTop="@dimen/_340sdp"
-        android:layout_marginEnd="@dimen/_18sdp"
-        android:background="@drawable/custome_layout_tepi"
-        android:hint="jangan emailnya tetangga mu"
-        android:inputType="textEmailAddress"
-        android:padding="@dimen/_9sdp" />
+        <EditText
+            android:id="@+id/et_phone_edit_profil"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_17sdp"
+            android:layout_marginTop="@dimen/_375sdp"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:background="@drawable/custom_layout_frame"
+            android:hint="Phone empty"
+            android:textColor="@color/black"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/_9sdp" />
 
 
-</RelativeLayout>
+    </RelativeLayout>
 </layout>

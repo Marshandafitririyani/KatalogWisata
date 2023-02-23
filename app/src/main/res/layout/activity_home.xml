@@ -3,99 +3,394 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="home_list"
+            type="com.example.katalogwisata.data.user.User" />
+    </data>
 
-    <RelativeLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/blue_100"
         android:orientation="vertical"
         tools:context=".ui.home.HomeActivity">
 
-        <EditText
-            android:id="@+id/et_search_home"
-            android:layout_width="@dimen/_190sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_25sdp"
-            android:layout_marginBottom="@dimen/_25sdp"
-            android:background="@drawable/custome_putih"
-            android:clickable="true"
-            android:drawableEnd="@drawable/ic_search"
-            android:elevation="@dimen/_10sdp"
-            android:focusable="true"
-            android:imeOptions="actionSearch"
-            android:inputType="text"
-            android:padding="@dimen/_8sdp"
-            app:defaultQueryHint="search notes"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:queryHint="search notes"
-            tools:text="search" />
-
         <ImageView
             android:id="@+id/iv_save"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
-            android:layout_marginStart="@dimen/_230sdp"
-            android:layout_marginTop="@dimen/_25sdp"
-            android:elevation="@dimen/_20sdp"
+            android:layout_marginTop="28dp"
             android:background="?selectableItemBackground"
+            android:elevation="@dimen/_20sdp"
             android:foreground="?selectableItemBackground"
-            android:src="@drawable/ic_save" />
+            android:src="@drawable/ic_save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.771"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/iv_profil_home"
-            android:layout_width="@dimen/_45sdp"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginStart="@dimen/_260sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:elevation="@dimen/_20sdp"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="16dp"
             android:background="?selectableItemBackground"
+            android:elevation="@dimen/_20sdp"
             android:foreground="?selectableItemBackground"
             android:src="@drawable/ic_person"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.954"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/white" />
 
 
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:adjustViewBounds="true"
+                app:iss_auto_cycle="true"
+                app:iss_delay="0"
+                app:iss_period="6000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_search_home" >
+
+                <EditText
+                    android:id="@+id/et_search_home"
+                    android:layout_width="@dimen/_190sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    android:background="@drawable/custom_white"
+                    android:clickable="true"
+                    android:drawableEnd="@drawable/ic_search"
+                    android:elevation="@dimen/_10sdp"
+                    android:focusable="true"
+                    android:hint="search"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:padding="@dimen/_8sdp"
+                    app:defaultQueryHint="search notes"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:queryHint="search notes"
+                    tools:text="search" />
+            </com.denzcoskun.imageslider.ImageSlider>
+
+        </FrameLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_190sdp"
-            android:background="@color/white"
-            android:orientation="horizontal">
+            android:layout_height="@dimen/_110sdp"
+            android:background="@drawable/custom_button_white_layout"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_210sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_wista_menarik"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="@dimen/_8sdp"
-                tools:itemCount="1"
-                tools:listitem="@layout/item_card_wisata_tengah" />
+                android:text="Tempat Wisata Menarik dan Populer Menurut Minat"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_75sdp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <FrameLayout
+                android:id="@+id/fr_nature"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_85sdp"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageSlider">
+
+                <ImageButton
+                    android:id="@+id/btn_nature"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:background="@drawable/custom_button_white"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img_nature" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:text="Nature"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fr_Park"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_85sdp"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageSlider">
+
+                <ImageButton
+                    android:id="@+id/btn_park"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:background="@drawable/custom_button_white"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img_park"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:text="Park"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fr_all"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_85sdp"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_7sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageSlider">
+
+                <ImageButton
+                    android:id="@+id/btn_all"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:background="@drawable/custom_button_white"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img_all"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_23sdp"
+                    android:text="All"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fr_view"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_85sdp"
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/_7sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageSlider">
+
+                <ImageView
+                    android:id="@+id/iv_view_all"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:src="@drawable/ic_arrow_enter" />
+
+            </FrameLayout>
+
+        </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_310sdp"
-            android:background="@color/white"
-            android:orientation="vertical">
+            android:background="@drawable/custom_button_white_layout"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_330sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_wisataPopuler"
+                android:id="@+id/rv_popular_tour"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
+                tools:itemCount="10"
+                app:spanCount="1"
                 android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_card_wisata_bawah" />
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:listitem="@layout/item_card_tour_end" />
 
         </LinearLayout>
-    </RelativeLayout>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
+
+
+    <!-- <EditText
+         android:id="@+id/et_search_home"
+         android:layout_width="@dimen/_190sdp"
+         android:layout_height="@dimen/_40sdp"
+         android:layout_marginStart="@dimen/_15sdp"
+         android:layout_marginTop="@dimen/_20sdp"
+         android:layout_marginEnd="@dimen/_25sdp"
+         android:layout_marginBottom="@dimen/_25sdp"
+         android:background="@drawable/custom_white"
+         android:clickable="true"
+         android:drawableEnd="@drawable/ic_search"
+         android:elevation="@dimen/_10sdp"
+         android:focusable="true"
+         android:imeOptions="actionSearch"
+         android:inputType="text"
+         android:padding="@dimen/_8sdp"
+         app:defaultQueryHint="search notes"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:queryHint="search notes"
+         tools:text="search" />
+
+     <ImageView
+         android:id="@+id/iv_save"
+         android:layout_width="@dimen/_30sdp"
+         android:layout_height="@dimen/_30sdp"
+         android:layout_marginStart="@dimen/_230sdp"
+         android:layout_marginTop="@dimen/_25sdp"
+         android:background="?selectableItemBackground"
+         android:elevation="@dimen/_20sdp"
+         android:foreground="?selectableItemBackground"
+         android:src="@drawable/ic_save" />
+
+     <ImageView
+         android:id="@+id/iv_profil_home"
+         android:layout_width="@dimen/_45sdp"
+         android:layout_height="@dimen/_45sdp"
+         android:layout_marginStart="@dimen/_260sdp"
+         android:layout_marginTop="@dimen/_15sdp"
+         android:background="?selectableItemBackground"
+         android:elevation="@dimen/_20sdp"
+         android:foreground="?selectableItemBackground"
+         android:src="@drawable/ic_person"
+         app:tint="@color/white" />
+
+     <com.denzcoskun.imageslider.ImageSlider
+         android:id="@+id/imageSlider"
+         android:layout_width="match_parent"
+         android:layout_height="@dimen/_200sdp"
+         android:layout_marginBottom="@dimen/_12sdp"
+         android:adjustViewBounds="true"
+         app:iss_auto_cycle="true"
+         app:iss_corner_radius="35"
+         app:iss_delay="0"
+         app:iss_period="6000"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@id/et_search_home" />
+
+
+
+     <FrameLayout
+         android:id="@+id/fr_nature"
+         android:layout_width="@dimen/_73sdp"
+         android:layout_height="@dimen/_73sdp"
+         android:layout_marginTop="@dimen/_210sdp"
+         android:orientation="vertical"
+         android:layout_marginStart="@dimen/_28sdp"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@id/imageSlider">
+
+         <ImageButton
+             android:id="@+id/btn_nature"
+             android:layout_width="@dimen/_70sdp"
+             android:layout_height="@dimen/_65sdp"
+             android:background="@drawable/custom_button_white"
+             android:scaleType="fitCenter"
+             android:src="@drawable/img_nature"
+             android:padding="@dimen/_3sdp" />
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="center"
+             android:layout_marginTop="@dimen/_15sdp"
+             android:text="Nature"
+             android:textStyle="bold"
+             android:textColor="@color/white" />
+
+     </FrameLayout>
+-->
+
+
+    <!-- <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="@dimen/_190sdp"
+         android:background="@color/white"
+         android:orientation="horizontal">
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/rv_interesting_tour"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             android:padding="@dimen/_8sdp"
+             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+             tools:listitem="@layout/item_card_tour_middle" />
+
+
+     </LinearLayout>
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="@dimen/_310sdp"
+         android:background="@color/white"
+         android:orientation="vertical">
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/rv_popular_tour"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="@dimen/_8sdp"
+             android:layout_marginTop="@dimen/_8sdp"
+             android:layout_marginEnd="@dimen/_8sdp"
+             android:orientation="vertical"
+             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+             tools:listitem="@layout/item_card_tour_end" />
+
+     </LinearLayout>-->

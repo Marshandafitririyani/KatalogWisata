@@ -26,19 +26,16 @@ class LoginViewModel @Inject constructor(
     private val session: Session
 
     ): BaseViewModel() {
-    fun login(email: String, password: String) = viewModelScope.launch {
+    fun login(phone: String, password: String) = viewModelScope.launch {
         _apiResponse.send(ApiResponse().responseLoading())
-        ApiObserver({apiService.login(email, password)}, false, object : ApiObserver.ResponseListener{
+        ApiObserver({apiService.login(phone, password)}, false, object : ApiObserver.ResponseListener{
             override suspend fun  onSuccess(response: JSONObject) {
                 val status = response.getInt(ApiCode.STATUS)
                 val data = response.getJSONObject(ApiCode.DATA).toObject<User>(gson)
-                val newToken = response.getString("access_token")
+                val newToken = response.getString("token")
                 session.setValue(Const.TOKEN.API_TOKEN, newToken)
                 session.saveUser(data)
-                if (status == ApiCode.SUCCESS){
-                    val message = response.getString(ApiCode.MESSAGE)
-                    _apiResponse.send(ApiResponse(status = ApiStatus.SUCCESS, message = message ))
-                }
+                _apiResponse.send(ApiResponse().responseSuccess())
             }
         })
     }

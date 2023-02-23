@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="list"
+            type="com.example.katalogwisata.data.user.Tour" />
+    </data>
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,41 +17,35 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cw_card"
         android:layout_width="390dp"
-        android:layout_height="200dp"
-        app:cardCornerRadius="0dp">
+        android:background="@drawable/custom_layout_frame"
+        android:layout_height="@dimen/_140sdp"
+        app:cardCornerRadius="@dimen/_1sdp">
 
         <LinearLayout
             android:layout_width="380dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:background="@color/blue_100"
             android:gravity="fill_horizontal"
             android:orientation="vertical">
-
+            
             <ImageView
                 android:layout_width="370dp"
                 android:layout_height="115dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/profil"/>
+                android:scaleType="centerCrop"
+                imageUrl='@{list.image}'/>
 
             <TextView
                 android:id="@+id/tv_wisata_bawah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="wisata"
+                android:text='@{list.name}'
+                tools:text="Nama Tempat"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_alam_bawah"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:maxHeight="@dimen/_80sdp"
-                android:text="alam"
-                android:textSize="15sp" />
 
         </LinearLayout>
 

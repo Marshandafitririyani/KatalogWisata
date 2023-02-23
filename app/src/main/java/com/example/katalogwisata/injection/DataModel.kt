@@ -1,7 +1,6 @@
 package com.example.katalogwisata.injection
 
 import android.content.Context
-import com.crocodic.core.data.CoreSession
 import com.crocodic.core.helper.okhttp.SSLTrust
 import com.example.katalogwisata.BuildConfig
 import com.example.katalogwisata.api.ApiService
@@ -19,13 +18,12 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
-import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import javax.net.ssl.SSLContext
 
 @InstallIn(SingletonComponent::class)
 @Module
-class DataModele {
+class DataModel {
     @Provides
     fun provideSession(@ApplicationContext context: Context,gson: Gson) = Session(context,gson)
 
@@ -48,13 +46,11 @@ class DataModele {
             .addInterceptor { chain ->
                 val original = chain.request()
                 val token = session.getString(Const.TOKEN.API_TOKEN)
-                val egld = session.getString(Const.TOKEN.FCM_TOKEN).trim()
-                Timber.d("tokenAndRegid: $token &regId")
                 val requestBuilder = original.newBuilder()
                     .header("Authorization", "Bearer $token")
                     .header("Contet-Type", "application/json")
-                    .header("Cookie", "laravel_session=qqAYeW97FzclkdubCgNLJCZnQGCH7cYiQTAN89TY")
-                    .header("Postman-Token", "<calculated when request is sent>")
+                    /*.header("Cookie", "laravel_session=qqAYeW97FzclkdubCgNLJCZnQGCH7cYiQTAN89TY")
+                    .header("Postman-Token", "<calculated when request is sent>")*/
                     .method(original.method, original.body)
 
                 val request = requestBuilder.build()
@@ -73,7 +69,7 @@ class DataModele {
     @Provides
     fun provideApiService(okHttpClient: OkHttpClient): ApiService {
         return Retrofit.Builder()
-            .baseUrl("https://magang.crocodic.net/ki/kelompok_2/project-wisata/public/")
+            .baseUrl("https://magang.crocodic.net/ki/kelompok_3/tour-app/public/")
             .addConverterFactory(ScalarsConverterFactory.create())
             .client(okHttpClient)
             .build().create(ApiService::class.java)

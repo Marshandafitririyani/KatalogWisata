@@ -6,29 +6,59 @@ import java.io.File
 
 interface ApiService {
     @FormUrlEncoded
-    @POST("api/login")
+    @POST("api/auth-login")
     suspend fun login(
-        @Field("email") email: String?,
+        @Field("phone_number") phone: String?,
         @Field("password") password: String?
     ): String
 
     @FormUrlEncoded
-    @POST("api/register")
-    suspend fun register(
-        @Field("name") name: String?,
-        @Field("email") email: String?,
-        @Field("password") password: String?
-    ): String
-
-    @FormUrlEncoded
-    @POST("api/member/2")
-    suspend fun updateProfile(
+    @POST("api/user-edit")
+    suspend fun userUpdate(
         @Field("_method") method: String?,
-        @Field("name") name: String?,
-        @Field("email") email: String?,
-        @Field("password") password: String?
+        @Field("name") name : String?,
+        @Field("phone number") phone : String?,
     ): String
 
+    @Multipart
+    @POST("api/user-edit")
+    suspend fun userUpdateWithPhoto(
+        @Part("_method") method: String,
+        @Part("name") name : String,
+        @Part("phone number") phone : String,
+        @Part photo : MultipartBody.Part?
+    ) : String
+
+    @POST("api/auth-logout")
+    suspend fun logout() : String
+
+    @GET("api/tour-list")
+    suspend fun tourList(
+    ) : String
+
+    //Image Slider
+    @GET("api/tour-img-slider?limit=8")
+    suspend fun imageSlider(
+    ) : String
+
+    @GET("api/category-list")
+    suspend fun categoryList(
+    ) : String
+
+    @GET("api/category-detail/1")
+    suspend fun tourCategoryNature() : String
+
+    @GET("api/category-detail/2")
+    suspend fun tourCategoryPark() : String
+
+    @GET("api/category-detail/3")
+    suspend fun tourCategoryAll() : String
+
+
+}
+
+
+/*
     @Multipart
     @PATCH("api/member/2")
     suspend fun updateProfileWithPhoto(
@@ -38,8 +68,9 @@ interface ApiService {
         @Part("email") email: String?,
         @Part("password") password: String?
     ): String
+*/
 
-    @POST("api/logout")
+   /* @POST("api/logout")
     suspend fun logout(): String
 
     @GET("api/member/2")
@@ -80,14 +111,8 @@ interface ApiService {
     @GET("api/view-category/3")
     suspend fun getCategoryView(): String
 
+*/
 
 
 
-
-
-
-
-
-
-}
 

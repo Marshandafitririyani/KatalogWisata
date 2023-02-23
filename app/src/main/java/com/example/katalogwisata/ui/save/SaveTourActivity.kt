@@ -1,12 +1,12 @@
-package com.example.katalogwisata.ui.simpan
+package com.example.katalogwisata.ui.save
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.katalogwisata.R
 
-class SaveWisataActivity : AppCompatActivity() {
+class SaveTourActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_simpan_wisata)
+        setContentView(R.layout.activity_save_tour)
     }
 }
