@@ -5,8 +5,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.example.katalogwisata.R
 
-
-class ViewModelHelper {
+class ViewBindingHelper {
     companion object {
         @JvmStatic
         @BindingAdapter(value = ["imageUrl"], requireAll = false)
@@ -18,8 +17,8 @@ class ViewModelHelper {
                 Glide
                     .with(view.context)
                     .load(imageUrl)
-                    .placeholder(R.drawable.img_person)
-                    .error(R.drawable.img_error_not_found)
+                    .placeholder(R.drawable.img_placeholders)
+                    .error(R.drawable.img_no_image)
                     .into(view)
 
             }

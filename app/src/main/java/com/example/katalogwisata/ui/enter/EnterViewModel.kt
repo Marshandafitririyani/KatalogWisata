@@ -2,7 +2,7 @@ package com.example.katalogwisata.ui.enter
 
 import com.example.katalogwisata.api.ApiService
 import com.example.katalogwisata.data.base.BaseViewModel
-import com.example.katalogwisata.data.user.Session
+import com.example.katalogwisata.data.session.Session
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

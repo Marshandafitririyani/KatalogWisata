@@ -8,10 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="abu">#888787</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue_400">#023E75</color>
     <color name="blue_300">#1C84E4</color>
     <color name="blue_200">#3D82C3</color>
     <color name="blue_100">#B37CBBF6</color>
-    <color name="trasparan">#00DFD2D2</color>
+    <color name="none">#00DFD2D2</color>
 
 
 </resources>

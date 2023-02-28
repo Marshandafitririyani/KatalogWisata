@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.katalogwisata.data.user.Tour" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:background="@drawable/custom_layout_frame_card"
+        android:padding="@dimen/_5sdp"
+        app:cardCornerRadius="@dimen/_3sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                imageUrl='@{data.image}'
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_130sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_8sdp"
+                android:contentDescription="@string/todo18"
+                android:scaleType="centerCrop"
+                app:iss_corner_radius="25" />
+
+
+            <TextView
+                android:id="@+id/tv_tour_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:ellipsize="end"
+                android:hint="@string/name_tour"
+                android:maxLines="1"
+                android:text='@{data.name}'
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

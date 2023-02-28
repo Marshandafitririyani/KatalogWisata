@@ -1,9 +1,10 @@
-package com.example.katalogwisata.data.user
+package com.example.katalogwisata.data.session
 
 import android.content.Context
 import com.crocodic.core.data.CoreSession
 import com.crocodic.core.extension.toJson
 import com.crocodic.core.extension.toObject
+import com.example.katalogwisata.data.user.User
 import com.google.gson.Gson
 
 class Session(context: Context, private val gson: Gson) : CoreSession(context) {
@@ -22,9 +23,10 @@ class Session(context: Context, private val gson: Gson) : CoreSession(context) {
     }
 
     fun clearUser() = setValue(PREF_USER, "")
+
     companion object {
         const val PREF_USER = "user"
-                val LAST_DATE_SEEK = "last_date_seek"
-                        val LAST_DATE_SYNC_TASK = "last_date_sync_task"
+        val LAST_DATE_SEEK = "last_date_seek"
+        val LAST_DATE_SYNC_TASK = "last_date_sync_task"
     }
 }

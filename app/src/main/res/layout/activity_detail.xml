@@ -5,134 +5,140 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="detail"
             type="com.example.katalogwisata.data.user.Tour" />
     </data>
 
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/blue_300"
-    tools:context=".ui.detail.DetailActivity">
-
-    <ImageView
-        android:id="@+id/image_view_detail"
-        android:layout_width="@dimen/_315sdp"
-        android:layout_height="@dimen/_220sdp"
-        android:src="@drawable/img_bromo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_400sdp"
-        android:layout_marginTop="220dp"
-        android:background="@drawable/custom_button_white_layout"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:background="@color/blue_300"
+        tools:context=".ui.detail.DetailActivity">
 
-        <TextView
-            android:id="@+id/tv_tour"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text='@{detail.name}'
-            android:hint="Gunung Bromo"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:textColor="@color/blue_300"
-            android:textSize="@dimen/_20ssp"
-            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/image_view_detail"
+            imageUrl='@{detail.image}'
+            android:layout_width="@dimen/_330sdp"
+            android:layout_height="@dimen/_200sdp"
+            android:contentDescription="@string/todo2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-       <!-- <TextView
-            android:id="@+id/tv_location"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:text='@{detail.}'
-            android:hint="Jawa Timur"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_15ssp"
-            android:textStyle="bold" />-->
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp">
-
-            <ImageView
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:src="@drawable/ic_location" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_190sdp"
+            android:background="@drawable/custom_button_white_layout"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/tv_adres_rute"
+                android:id="@+id/tv_tour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_48sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:text='@{detail.address}'
-                android:hint="Podokoyo, Kec.Tosari, Pasuruan, Jawa Timur"
-                android:textSize="@dimen/_15sdp" />
-        </FrameLayout>
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_5sdp"
+                android:text='@{detail.name}'
+                android:textColor="@color/blue_300"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:text="Deskripsi"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_15ssp"
-            android:textStyle="bold" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
 
-        <TextView
-            android:id="@+id/tv_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:text='@{detail.describeContents()}'
-            android:textColor="@color/black"
-            android:hint="Gunung Bromo atau dalam bahasa Tengger dieja "
-            android:textSize="@dimen/_15ssp" />
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:contentDescription="@string/todo3"
+                    android:src="@drawable/ic_location" />
 
-        <Button
-            android:id="@+id/btn_save_rute"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:background="@drawable/custom_button"
-            android:text="Simpan"
-            android:textAllCaps="false"
-            android:layout_marginStart="@dimen/_200sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_60sdp"
-            android:textSize="@dimen/_10ssp" />
+                <TextView
+                    android:id="@+id/tv_address_rute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_48sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text='@{detail.address}'
+                    android:textSize="@dimen/_15sdp" />
+            </FrameLayout>
 
-        <Button
-            android:id="@+id/btn_rute"
-            android:layout_width="@dimen/_250sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:background="@drawable/custom_button"
-            android:text="Rute"
-            android:textAllCaps="false"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_50sdp"
-            android:textSize="@dimen/_18ssp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:text="@string/deskription"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                android:textStyle="bold" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="left"
+                android:text='@{detail.information}'
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
 
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/custom_button"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center"
+                android:text="@string/save"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_12ssp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_unsave"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/custom_button_abu"
+                android:foreground="?selectableItemBackground"
+                android:text="@string/unsave"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="gone" />
 
+            <Button
+                android:id="@+id/btn_rute"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/custom_button"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center"
+                android:text="@string/rute"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_18ssp" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

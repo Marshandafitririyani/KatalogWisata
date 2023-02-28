@@ -4,98 +4,117 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
-            name="listTour"
+            name="data"
             type="com.example.katalogwisata.data.user.Tour" />
+
+        <import type="android.view.View" />
     </data>
 
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/_250sdp"
-    android:layout_margin="@dimen/_8sdp"
-    app:cardCornerRadius="@dimen/_20sdp"
-    android:orientation="vertical">
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:id="@+id/imageView"
-        imageUrl='@{listTour.image}'
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_tour"
         android:layout_width="match_parent"
-        android:scaleType="centerCrop"
-        android:layout_height="@dimen/_120sdp"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_220sdp"
         android:layout_margin="@dimen/_10sdp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:text='@{listTour.name}'
-        android:textColor="@color/black"
-        android:textSize="@dimen/_16sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:text="Place Name" />
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/_4sdp">
 
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/ic_location"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.026" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_view"
-        android:layout_width="@dimen/_140sdp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:maxLines="1"
-        android:text='@{listTour.address}'
-        android:textSize="@dimen/_12sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.325"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.304"
-        tools:text="Place Address" />
+            <ImageView
+                android:id="@+id/image_view_list"
+                imageUrl='@{data.image}'
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                android:contentDescription="@string/todo19"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
-        android:backgroundTint="@color/blue_300"
-        android:text="Details"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/text_view_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:ellipsize="end"
+                android:padding="@dimen/_3sdp"
+                android:maxLines="1"
+                android:text='@{data.name}'
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_view_list"
+                tools:text="Place Name" />
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/todo20"
+                android:src="@drawable/ic_location"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.043"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name"
+                app:layout_constraintVertical_bias="0.031" />
+
+            <TextView
+                android:id="@+id/text_view"
+                android:layout_width="@dimen/_140sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:maxLines="1"
+                android:text='@{data.address}'
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.239"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_view_list"
+                app:layout_constraintVertical_bias="0.333"
+                tools:text="Place Address" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/heart_plain"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_230sdp"
+                    android:layout_marginTop="@dimen/_180sdp"
+                    android:contentDescription="@string/todo21"
+                    android:src="@drawable/ic_turned_frame"
+                    android:visibility='@{data.like == "true" ? View.GONE : View.VISIBLE}' />
+
+                <ImageView
+                    android:id="@+id/heart_read"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_230sdp"
+                    android:layout_marginTop="@dimen/_180sdp"
+                    android:contentDescription="@string/todo22"
+                    android:src="@drawable/ic_turned_black"
+                    android:visibility='@{data.like != "true" ? View.GONE : View.VISIBLE}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>
 
-
-<!--<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.all.AllListActivity">
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>-->

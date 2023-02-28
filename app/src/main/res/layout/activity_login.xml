@@ -4,7 +4,7 @@
 
     <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/img_background_login"
         tools:context=".ui.login.LoginActivity">
 
@@ -13,22 +13,22 @@
             android:layout_height="@dimen/_120sdp"
             android:layout_marginStart="@dimen/_28sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:contentDescription="@string/todo8"
             android:src="@drawable/img_go_tour" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_150sdp"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_50sdp"
-                android:layout_marginEnd="@dimen/_13sdp"
                 android:gravity="center"
-                android:text="Welcome back"
+                android:text="@string/welcome_back"
                 android:textColor="@color/blue_300"
                 android:textSize="@dimen/_25ssp"
                 android:textStyle="bold" />
@@ -36,10 +36,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="@dimen/_13sdp"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Login to your account"
+                android:text="@string/login_to_your_account"
                 android:textColor="@color/blue_300"
                 android:textSize="@dimen/_13ssp" />
 
@@ -48,20 +47,22 @@
                 android:id="@+id/et_phone_login"
                 android:layout_width="@dimen/_280sdp"
                 android:layout_height="@dimen/_40sdp"
-                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_40sdp"
+                android:autofillHints="phone"
                 android:background="@drawable/custom_box"
                 android:drawableStart="@drawable/ic_phone"
                 android:drawablePadding="@dimen/_8sdp"
-                android:hint="phone"
-                android:inputType="textEmailAddress"
+                android:foreground="?selectableItemBackground"
+                android:hint="@string/phone"
+                android:inputType="phone"
                 android:padding="@dimen/_10sdp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 app:hintEnabled="false"
                 app:passwordToggleEnabled="true">
 
@@ -69,25 +70,17 @@
                     android:id="@+id/et_password_login"
                     android:layout_width="@dimen/_280sdp"
                     android:layout_height="@dimen/_40sdp"
-                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_gravity="center"
+                    android:autofillHints="password"
                     android:background="@drawable/custom_box"
                     android:drawableStart="@drawable/ic_password"
                     android:drawablePadding="@dimen/_8sdp"
-                    android:hint="Password"
+                    android:foreground="?selectableItemBackground"
+                    android:hint="@string/password"
                     android:inputType="textPassword"
                     android:padding="@dimen/_10sdp"
                     android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <!--  <TextView
-                  android:id="@+id/tv_register_login"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginStart="@dimen/_235sdp"
-                  android:layout_marginTop="@dimen/_8sdp"
-                  android:text="Register"
-                  android:textColor="@color/blue_300"
-                  android:textSize="@dimen/_15ssp" />-->
 
             <Button
                 android:id="@+id/btn_login"
@@ -96,12 +89,12 @@
                 android:layout_marginStart="@dimen/_30sdp"
                 android:layout_marginTop="@dimen/_70sdp"
                 android:background="@drawable/custom_button"
-                android:text="Login"
+                android:foreground="?selectableItemBackground"
+                android:text="@string/login"
                 android:textAllCaps="false"
                 android:textSize="@dimen/_18ssp" />
 
         </LinearLayout>
-
 
     </RelativeLayout>
 </layout>

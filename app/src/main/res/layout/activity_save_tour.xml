@@ -1,61 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
 
+        <variable
+            name="data"
+            type="com.example.katalogwisata.data.user.User" />
+    </data>
 
-
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".ui.save.SaveTourActivity">
-
-    <LinearLayout
-        android:id="@+id/linear_layout_simpan"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/blue_300"
-        android:gravity="fill_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:layout_marginStart="@dimen/_120sdp"
-        android:text="Disimpan"
-        android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:textSize="25sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/blue_100"
-        android:layout_marginTop="50dp"
-        android:orientation="vertical">
+        tools:context=".ui.save.SaveTourActivity">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_tour_save"
+        <LinearLayout
+            android:id="@+id/linear_layout_simpan"
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="11.5dp"
+            android:layout_height="55dp"
+            android:background="@color/blue_300"
+            android:gravity="fill_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_118sdp"
+                android:gravity="center"
+                android:text="@string/favorite"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_card_tour_save" />
+            android:layout_marginTop="50dp"
+            android:background="@color/blue_100"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_tour_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginTop="10dp"
+                android:foreground="?selectableItemBackground"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_list_catogari" />
+
+        </LinearLayout>
 
 
-
-</RelativeLayout>
+    </RelativeLayout>
 </layout>

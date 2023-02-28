@@ -16,14 +16,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class LoginActivity: BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layout.activity_login) {
+class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layout.activity_login) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding.btnLogin.setOnClickListener {
-            if (binding.etPhoneLogin.isEmptyRequired(R.string.label_must_fill) || binding.etPasswordLogin.isEmptyRequired(
-                    R.string.label_must_fill
-                )
+            if (binding.etPhoneLogin.isEmptyRequired(R.string.label_must_fill) ||
+                binding.etPasswordLogin.isEmptyRequired(R.string.label_must_fill)
             ) {
                 return@setOnClickListener
             }
@@ -32,13 +31,12 @@ class LoginActivity: BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layout
 
             viewModel.login(phone, password)
         }
-
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
                     viewModel.apiResponse.collect {
                         when (it.status) {
-                            ApiStatus.LOADING -> loadingDialog.show(" Please Wait login")
+                            ApiStatus.LOADING -> loadingDialog.show("Please Wait login")
                             ApiStatus.SUCCESS -> {
                                 loadingDialog.dismiss()
                                 openActivity<HomeActivity>()

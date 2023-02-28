@@ -10,7 +10,6 @@
             type="com.example.katalogwisata.ui.edit.EditProfileActivity" />
     </data>
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,14 +27,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
             <ImageView
-                android:id="@+id/iv_silang_edit_profil"
+                android:id="@+id/iv_cancel_edit_profile"
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:background="?selectableItemBackground"
+                android:contentDescription="@string/todo4"
                 android:foreground="?selectableItemBackground"
                 android:src="@drawable/ic_flase" />
 
@@ -44,26 +43,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/_60sdp"
-                android:text="Edit Profil"
+                android:layout_marginStart="@dimen/_65sdp"
+                android:gravity="center"
+                android:text="@string/edit_profile"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_25sdp" />
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/iv_centang_edit_profil"
+                android:id="@+id/iv_done_edit_profile"
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/_50sdp"
+                android:contentDescription="@string/todo5"
+                android:foreground="?selectableItemBackground"
                 android:src="@drawable/ic_true"
                 app:tint="@color/white" />
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/iv_edit_profil"
+            android:id="@+id/iv_edit_profile"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_200sdp"
             android:layout_marginTop="@dimen/_50sdp"
+            android:contentDescription="@string/todo6"
+            android:foreground="?selectableItemBackground"
             android:padding="@dimen/_8sdp"
             android:src="@drawable/img_person" />
 
@@ -73,22 +78,24 @@
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_270sdp"
             android:layout_marginEnd="@dimen/_18sdp"
-            android:text="Name"
+            android:text="@string/name"
+            android:textColor="@color/blue_300"
             android:textSize="@dimen/_16ssp" />
 
-
         <EditText
-            android:id="@+id/et_name_edit_profil"
+            android:id="@+id/et_name_edit_profile"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_17sdp"
             android:layout_marginTop="@dimen/_295sdp"
             android:layout_marginEnd="@dimen/_18sdp"
+            android:autofillHints="name"
             android:background="@drawable/custom_layout_frame"
-            android:hint="Nama empty"
-            android:textColor="@color/black"
+            android:foreground="?selectableItemBackground"
+            android:hint="@string/nama_empty"
             android:inputType="textCapWords"
-            android:padding="@dimen/_9sdp" />
+            android:padding="@dimen/_9sdp"
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="match_parent"
@@ -96,22 +103,23 @@
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_350sdp"
             android:layout_marginEnd="@dimen/_18sdp"
-            android:text="Phone Number"
+            android:text="@string/phone_number"
+            android:textColor="@color/blue_300"
             android:textSize="@dimen/_16ssp" />
 
         <EditText
-            android:id="@+id/et_phone_edit_profil"
+            android:id="@+id/et_phone_edit_profile"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_marginStart="@dimen/_17sdp"
             android:layout_marginTop="@dimen/_375sdp"
             android:layout_marginEnd="@dimen/_18sdp"
+            android:autofillHints="creditCardNumber"
             android:background="@drawable/custom_layout_frame"
-            android:hint="Phone empty"
-            android:textColor="@color/black"
-            android:inputType="textEmailAddress"
-            android:padding="@dimen/_9sdp" />
-
-
+            android:foreground="?selectableItemBackground"
+            android:hint="@string/phone_empty"
+            android:inputType="phone"
+            android:padding="@dimen/_9sdp"
+            android:textColor="@color/black" />
     </RelativeLayout>
 </layout>

@@ -5,7 +5,7 @@ import com.crocodic.core.helper.okhttp.SSLTrust
 import com.example.katalogwisata.BuildConfig
 import com.example.katalogwisata.api.ApiService
 import com.example.katalogwisata.data.const.Const
-import com.example.katalogwisata.data.user.Session
+import com.example.katalogwisata.data.session.Session
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -25,7 +25,7 @@ import javax.net.ssl.SSLContext
 @Module
 class DataModel {
     @Provides
-    fun provideSession(@ApplicationContext context: Context,gson: Gson) = Session(context,gson)
+    fun provideSession(@ApplicationContext context: Context, gson: Gson) = Session(context, gson)
 
     @Provides
     fun provideGson() =
@@ -49,8 +49,6 @@ class DataModel {
                 val requestBuilder = original.newBuilder()
                     .header("Authorization", "Bearer $token")
                     .header("Contet-Type", "application/json")
-                    /*.header("Cookie", "laravel_session=qqAYeW97FzclkdubCgNLJCZnQGCH7cYiQTAN89TY")
-                    .header("Postman-Token", "<calculated when request is sent>")*/
                     .method(original.method, original.body)
 
                 val request = requestBuilder.build()
@@ -66,6 +64,7 @@ class DataModel {
         return okHttpClient.build()
 
     }
+
     @Provides
     fun provideApiService(okHttpClient: OkHttpClient): ApiService {
         return Retrofit.Builder()
