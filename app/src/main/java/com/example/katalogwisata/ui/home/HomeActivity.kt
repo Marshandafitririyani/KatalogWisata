@@ -1,6 +1,7 @@
 package com.example.katalogwisata.ui.home
 
 import android.os.Bundle
+import android.view.View
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -61,6 +62,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
                 }
                 binding.rvPopularTour.adapter?.notifyDataSetChanged()
                 binding.rvPopularTour.adapter?.notifyItemInserted(0)
+                if (tour.isEmpty()) {
+                    binding.tvEmpty.visibility = View.VISIBLE
+                } else {
+                    binding.tvEmpty.visibility = View.GONE
+                }
+
             }
         }
 
@@ -123,6 +130,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
             tourAll.addAll(it)
             binding?.rvPopularTour?.adapter?.notifyDataSetChanged()
             binding?.rvPopularTour?.adapter?.notifyItemInserted(0)
+            if (tour.isEmpty()) {
+                binding.tvEmpty.visibility = View.VISIBLE
+            } else {
+                binding.tvEmpty.visibility = View.GONE
+            }
 
         }
 

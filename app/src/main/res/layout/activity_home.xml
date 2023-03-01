@@ -280,6 +280,19 @@
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/tv_empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
+                    android:textSize="@dimen/_30sdp"
+                    android:gravity="center"
+                    android:src="@drawable/img_empty_search"
+                    tools:ignore="ContentDescription" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_popular_tour"
                     android:layout_width="match_parent"
@@ -290,6 +303,10 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="10"
                     tools:listitem="@layout/item_card_tour" />
+
+                </FrameLayout>
+
+
 
             </LinearLayout>
 
