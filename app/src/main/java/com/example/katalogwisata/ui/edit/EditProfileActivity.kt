@@ -69,9 +69,10 @@ class EditProfileActivity :
                 return
             }
 
-        if (photoFile == null && name == username && phone == phoneNumber) {
-            tos("Tidak ada yang berubah")
+        if (photoFile == null ){
+            if (name == username && phone == phoneNumber) {
             return
+            }
             viewModel.userUpdate("put", name, phone)
         } else {
             lifecycleScope.launch {
