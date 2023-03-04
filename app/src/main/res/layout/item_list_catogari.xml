@@ -41,8 +41,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
                 android:ellipsize="end"
-                android:padding="@dimen/_3sdp"
                 android:maxLines="1"
+                android:padding="@dimen/_3sdp"
                 android:text='@{data.name}'
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16sdp"
@@ -92,8 +92,9 @@
                     android:id="@+id/heart_plain"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
-                    android:layout_marginStart="@dimen/_230sdp"
+                    android:layout_gravity="end"
                     android:layout_marginTop="@dimen/_180sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
                     android:contentDescription="@string/todo21"
                     android:src="@drawable/ic_turned_frame"
                     android:visibility='@{data.like == "true" ? View.GONE : View.VISIBLE}' />
@@ -102,8 +103,9 @@
                     android:id="@+id/heart_read"
                     android:layout_width="@dimen/_30sdp"
                     android:layout_height="@dimen/_30sdp"
-                    android:layout_marginStart="@dimen/_230sdp"
+                    android:layout_gravity="end"
                     android:layout_marginTop="@dimen/_180sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
                     android:contentDescription="@string/todo22"
                     android:src="@drawable/ic_turned_black"
                     android:visibility='@{data.like != "true" ? View.GONE : View.VISIBLE}'

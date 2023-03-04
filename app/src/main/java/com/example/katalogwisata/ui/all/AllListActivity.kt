@@ -98,6 +98,7 @@ class AllListActivity :
                         tour.addAll(it)
                         binding.rvListDestination.adapter?.notifyDataSetChanged()
 
+
                     }
                 }
             }

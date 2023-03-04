@@ -12,13 +12,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/blue_100"
         tools:context=".ui.save.SaveTourActivity">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linear_layout_simpan"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="50dp"
             android:background="@color/blue_300"
             android:gravity="fill_vertical"
             android:orientation="horizontal"
@@ -31,21 +32,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_118sdp"
                 android:gravity="center"
                 android:text="@string/favorite"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:background="@color/blue_100"
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -59,6 +60,15 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_list_catogari" />
+
+            <ImageView
+                android:id="@+id/tv_empty_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:src="@drawable/img_empty_search"
+                android:textSize="@dimen/_30sdp"
+                tools:ignore="ContentDescription" />
 
         </LinearLayout>
 

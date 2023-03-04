@@ -1,6 +1,7 @@
 package com.example.katalogwisata.ui.save
 
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -65,6 +66,11 @@ class SaveTourActivity :
             tour.addAll(filterByLike)
             binding?.rvTourSave?.adapter?.notifyDataSetChanged()
             binding?.rvTourSave?.adapter?.notifyItemInserted(0)
+            if (tour.isEmpty()) {
+                binding.tvEmptySave.visibility = View.VISIBLE
+            } else {
+                binding.tvEmptySave.visibility = View.GONE
+            }
 
         }
     }

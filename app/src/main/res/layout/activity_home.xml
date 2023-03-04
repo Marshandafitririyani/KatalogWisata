@@ -128,7 +128,7 @@
             <LinearLayout
                 android:id="@+id/linear_layout_middle"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_115sdp"
+                android:layout_height="@dimen/_120sdp"
                 android:layout_marginTop="@dimen/_193sdp"
                 android:background="@drawable/custom_button_white_all"
                 android:orientation="vertical"
@@ -145,6 +145,7 @@
                     android:padding="@dimen/_5sdp"
                     android:text="@string/interesting_and_popular_tourist_spots"
                     android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -278,34 +279,34 @@
                     android:padding="@dimen/_5sdp"
                     android:text="@string/most_popular_tourist_spots"
                     android:textColor="@color/black"
+                    android:textSize="@dimen/_14ssp"
                     android:textStyle="bold" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/tv_empty"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_200sdp"
-                    android:textSize="@dimen/_30sdp"
-                    android:gravity="center"
-                    android:src="@drawable/img_empty_search"
-                    tools:ignore="ContentDescription" />
+                    <ImageView
+                        android:id="@+id/tv_empty"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_200sdp"
+                        android:gravity="center"
+                        android:src="@drawable/img_empty_search"
+                        android:textSize="@dimen/_30sdp"
+                        tools:ignore="ContentDescription" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_popular_tour"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:orientation="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:itemCount="10"
-                    tools:listitem="@layout/item_card_tour" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_popular_tour"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="10"
+                        tools:listitem="@layout/item_card_tour" />
 
                 </FrameLayout>
-
 
 
             </LinearLayout>

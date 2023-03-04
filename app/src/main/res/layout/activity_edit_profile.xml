@@ -55,7 +55,7 @@
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/_50sdp"
+                android:layout_marginStart="@dimen/_55sdp"
                 android:contentDescription="@string/todo5"
                 android:foreground="?selectableItemBackground"
                 android:src="@drawable/ic_true"

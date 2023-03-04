@@ -44,16 +44,16 @@ class EditProfileActivity :
 
     private var photoFile: File? = null
     private var username: String? = null
-    private var phoneNumber: String? = null
+    private var phone: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         username = intent.getStringExtra("username")
-        phoneNumber = intent.getStringExtra("phoneNumber")
+        phone= intent.getStringExtra("phoneNumber")
         binding.activity = this
         binding.etNameEditProfile.setText(username)
-        binding.etPhoneEditProfile.setText(phoneNumber)
+        binding.etPhoneEditProfile.setText(phone)
 
         initClick()
         observe()
@@ -62,24 +62,22 @@ class EditProfileActivity :
 
     private fun validateForm() {
         val name = binding.etNameEditProfile.textOf()
-        val phone = binding.etPhoneEditProfile.textOf()
+        val phoneNumber= binding.etPhoneEditProfile.textOf()
 
-        if (name.isEmpty())
-            if (phone.isEmpty()) {
+        if (name.isEmpty() && phoneNumber.isEmpty()) {
+            return
+        }
+
+        if (photoFile == null) {
+            if (  name == username && phoneNumber == phone ){
                 return
             }
-
-        if (photoFile == null ){
-            if (name == username && phone == phoneNumber) {
-            return
-            }
-            viewModel.userUpdate("put", name, phone)
+            viewModel.userUpdate("put", name, phoneNumber)
         } else {
             lifecycleScope.launch {
-                tos("Tunggu")
                 val compressPhoto = compressFile(photoFile!!)
                 if (compressPhoto != null) {
-                    viewModel.userUpdateWithPhoto("put", name, phone, compressPhoto)
+                    viewModel.userUpdateWithPhoto("put", name, phoneNumber, compressPhoto)
                 }
             }
         }
@@ -94,7 +92,7 @@ class EditProfileActivity :
                 resolution(720, 720)
                 quality(90)
                 format(Bitmap.CompressFormat.PNG)
-                size(520)
+                size(514)
             }
         } catch (e: Exception) {
             println("Compress 3")
@@ -132,7 +130,7 @@ class EditProfileActivity :
                         when (it.status) {
                             ApiStatus.LOADING -> loadingDialog.show(" Please Wait Save Profil")
                             ApiStatus.SUCCESS -> {
-                                loadingDialog.dismiss()
+                                loadingDialog.show("Succes Update Profil")
                                 openActivity<ProfileActivity>()
                                 finish()
                             }
