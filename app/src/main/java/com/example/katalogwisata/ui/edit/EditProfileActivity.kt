@@ -69,7 +69,7 @@ class EditProfileActivity :
         }
 
         if (photoFile == null) {
-            if (  name == username && phoneNumber == phone ){
+            if (name == username && phoneNumber == phone ){
                 return
             }
             viewModel.userUpdate("put", name, phoneNumber)

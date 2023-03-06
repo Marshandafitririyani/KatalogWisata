@@ -70,6 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_48sdp"
+                    android:layout_marginEnd="@dimen/_2sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:text='@{detail.address}'
                     android:textSize="@dimen/_15sdp" />
@@ -90,19 +91,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:layout_margin="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:gravity="left"
                 android:text='@{detail.information}'
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15ssp" />
+                android:textSize="@dimen/_15ssp"
+                tools:ignore="RtlHardcoded" />
 
             <Button
                 android:id="@+id/btn_save"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="end"
-                android:layout_marginTop="@dimen/_60sdp"
+                android:layout_marginTop="@dimen/_40sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:background="@drawable/custom_button"
                 android:foreground="?selectableItemBackground"
@@ -131,7 +133,7 @@
                 android:layout_width="@dimen/_250sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/custom_button"
                 android:foreground="?selectableItemBackground"
                 android:gravity="center"
