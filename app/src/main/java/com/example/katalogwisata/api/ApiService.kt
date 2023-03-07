@@ -35,13 +35,13 @@ interface ApiService {
     suspend fun tourList(
     ): String
 
-    //Image Slider
     @GET("api/tour-img-slider?limit=10")
     suspend fun imageSlider(
     ): String
 
-    @GET("api/category-list")
-    suspend fun categoryList(
+    @GET("api/category-detail/{idCategory}")
+    suspend fun tourCategory(
+        @Path ("idCategory") idCategory: Int
     ): String
 
     @GET("api/category-detail/1")

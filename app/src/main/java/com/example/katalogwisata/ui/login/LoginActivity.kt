@@ -42,7 +42,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
                                 openActivity<HomeActivity>()
                                 finish()
                             }
-                            else -> loadingDialog.setResponse("Else")
+                            else -> loadingDialog.setResponse(it.message?:return@collect)
                         }
                     }
                 }

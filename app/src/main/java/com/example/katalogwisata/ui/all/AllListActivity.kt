@@ -25,7 +25,10 @@ class AllListActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         observe()
+        getData()
+
 
         binding.swipeRefreshLayout.setOnRefreshListener {
             val id = intent.getIntExtra(Const.CATEGORY.ID, 0)
@@ -41,6 +44,7 @@ class AllListActivity :
                 }
 
             }
+
         }
 
         binding.rvListDestination.adapter =
@@ -62,31 +66,19 @@ class AllListActivity :
         binding.btnBack.setOnClickListener {
             onBackPressed()
         }
+    }
 
-        val id = intent.getIntExtra(Const.CATEGORY.ID, 0)
-        when (id) {
-            1 -> {
-                viewModel.listNature()
-                binding.tvDestination.text = "Nature"
-            }
-            2 -> {
-                viewModel.listPark()
-                binding.tvDestination.text = "Park"
-            }
-            3 -> {
-                getListAll()
-                binding.tvDestination.text = "All"
-            }
+    private fun getData(){
+        val idCategory = intent.getIntExtra(Const.CATEGORY.ID, 0)
+        viewModel.tourListPath(idCategory)
 
+        binding.tvDestination.text = when (idCategory) {
+            1 -> "Nature"
+            2 -> "Park"
+            3 -> "All"
+            else-> ""
         }
-
-
     }
-
-    private fun getListAll() {
-        viewModel.listAll()
-    }
-
 
     private fun observe() {
         lifecycleScope.launch {

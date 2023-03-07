@@ -28,7 +28,7 @@ class HomeViewModel @Inject constructor(
     var tour = MutableLiveData<List<Tour>>()
     var image = MutableLiveData<List<ImageSlide>>()
 
-    fun touList() = viewModelScope.launch {
+    fun tourList() = viewModelScope.launch {
         ApiObserver({ apiService.tourList() }, false, object : ApiObserver.ResponseListener {
             override suspend fun onSuccess(response: JSONObject) {
                 val status = response.getInt(ApiCode.STATUS)

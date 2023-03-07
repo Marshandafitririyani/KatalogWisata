@@ -25,7 +25,7 @@ class SaveTourViewModel @Inject constructor(
     ): BaseViewModel() {
     var tour = MutableLiveData<List<Tour>>()
 
-    fun touList() = viewModelScope.launch {
+    fun tourList() = viewModelScope.launch {
         ApiObserver({ apiService.tourList()},false,object : ApiObserver.ResponseListener{
             override suspend fun onSuccess(response: JSONObject) {
                 val status = response.getInt(ApiCode.STATUS)

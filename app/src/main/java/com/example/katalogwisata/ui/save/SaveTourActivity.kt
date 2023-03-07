@@ -56,7 +56,7 @@ class SaveTourActivity :
     }
 
     private fun getTourList() {
-        viewModel.touList()
+        viewModel.tourList()
     }
 
     private fun observe() {

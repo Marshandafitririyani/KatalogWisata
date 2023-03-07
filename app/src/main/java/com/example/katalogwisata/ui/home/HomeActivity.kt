@@ -119,16 +119,16 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.a
     }
 
     private fun getTourList() {
-        viewModel.touList()
+        viewModel.tourList()
     }
 
     private fun observe() {
         viewModel.tour.observe(this) {
             tour.clear()
-            tour.addAll(it)
             tourAll.clear()
-            tourAll.addAll(it)
             binding?.rvPopularTour?.adapter?.notifyDataSetChanged()
+            tour.addAll(it)
+            tourAll.addAll(it)
             binding?.rvPopularTour?.adapter?.notifyItemInserted(0)
             if (tour.isEmpty()) {
                 binding.tvEmpty.visibility = View.VISIBLE

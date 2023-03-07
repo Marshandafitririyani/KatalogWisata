@@ -48,7 +48,7 @@ class DataModel {
                 val token = session.getString(Const.TOKEN.API_TOKEN)
                 val requestBuilder = original.newBuilder()
                     .header("Authorization", "Bearer $token")
-                    .header("Contet-Type", "application/json")
+                    .header("Content-Type", "application/json")
                     .method(original.method, original.body)
 
                 val request = requestBuilder.build()
